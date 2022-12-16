@@ -74,12 +74,12 @@ public class ClsService {
 		
 		User u2 = new User();
 		
-		
 		System.out.println(u1.getUserID());
 		System.out.println(u1.getUserPW());
 		System.out.println(u1.getUserName());
 		System.out.println(u1.getUserAge());
 		System.out.println(u1.getUserGender());
+		
 		
 		System.out.println("============================");
 		
@@ -103,7 +103,7 @@ public class ClsService {
 		
 		System.out.println("============================");
 		// 해결방법 2 : 매개변수 생성자를 사용 
-		User u3 = new User("junsu123", "wnstn", "준수", 29, 'M');
+		User u3 = new User("junsu123", "wnstn");
 		
 		System.out.println(u3.getUserID());
 		System.out.println(u3.getUserPW());
@@ -111,6 +111,21 @@ public class ClsService {
 		System.out.println(u3.getUserAge());
 		System.out.println(u3.getUserGender());
 		
+		User u4 = new User("add123", "ddsf");
+		
+		System.out.println(u4.getUserID());
+		System.out.println(u4.getUserPW());
+		System.out.println(u4.getUserName());
+		System.out.println(u4.getUserAge());
+		System.out.println(u4.getUserGender());
+		
+		/*User u5 = new User("test", "testpw", 
+		 * "김똥띵", 13, 'F')
+		 */
+		
+		// 생성자가 접근제한자 public 사용하는 이유 
+		// 
+		
 	}
-	
+		
 }
