@@ -76,8 +76,8 @@ public class MemberService { //클래스
 			switch(menuNum) {
 			case 1 : System.out.println(signUp());; break;
 			case 2 : System.out.println(login());; break;
-			case 3 : break;
-			case 4 : break;
+			case 3 : System.out.println(mypage());break;
+			case 4 : System.out.println(update());break;
 			case 0 : break;
 			default: System.out.println("잘못 입력하셨습니다. 다시 입력 바랍니다.");
 			}
@@ -142,8 +142,98 @@ public class MemberService { //클래스
 	}
 	
 	// 회원 정보 조회 기능
-
-	// 회원 정보 수정 (update) 기능
-	 
+	public String mypage() {
+		
+		System.out.println("*******회원 정보*******\n");
+		
+		if(loginMember == null){
+			
+			return "로그인을 먼저 진행해주세요";
+			
+		}else {
+			
+			System.out.println("ID : " + loginMember.getMemberID());
+			System.out.println("이름 : " + loginMember.getMemberName());
+			System.out.println("연령 : " + loginMember.getMemberAge());
+			
+			return "조회 완료 " ;
+		}
+		
+	}
 	
+	// 회원 정보 수정 (update) 기능
+	
+	public String update() {
+		
+		if(loginMember!=null) {
+			
+		
+			System.out.println("*******회원 정보*******\n");
+		
+		
+			int re = 0;
+		
+		
+		
+			do {
+				System.out.println("*******정보 수정******* \n");
+				System.out.println("1 : 아이디 수정 \n");
+				System.out.println("2 : 비밀번호 수정 \n");
+				System.out.println("3 : 이름 수정 \n");
+				System.out.println("4 : 나이 수정 \n");
+				System.out.println("0 : 수정 완료 \n");
+				re = sc.nextInt();
+			
+				sc.nextLine();
+				switch(re) {
+		
+				case 1 : {
+					System.out.println("수정할 아이디를 입력하세요 ");
+					String reID = sc.nextLine();
+					loginMember.setMemberID(reID);
+		
+					return "ID 수정 완료" ;
+				}
+				case 2 :{
+					System.out.println("수정할 비밀번호를 입력하세요");
+					String rePW = sc.nextLine();
+		
+					System.out.println("비밀번호를 다시 입력하세요");
+					String rePW2 = sc.nextLine();
+					if(rePW2.equals(rePW)) {
+						loginMember.setMemberPW(rePW);
+						return "비밀번호 변경 완료";
+				
+					}else {
+						return "비밀번호 변경 실패(비밀번호 확인 불일치)";
+			
+					}
+				}
+				case 3 :{
+					System.out.println("수정할 이름을 입력하세요 ");
+					String reName = sc.nextLine();
+					loginMember.setMemberName(reName);
+			
+					return "이름 수정 완료" ;
+				
+				}
+			
+				case 4 :{
+					System.out.println("수정할 나이를 입력하세요 ");
+					int reAge = sc.nextInt();
+					loginMember.setMemberAge(reAge);
+				
+					return "나이 수정 완료" ;
+			
+				} 
+				case 0 : break;
+		
+				}
+			}while(re!=0);
+			return "수정 완료";
+		}else {
+		
+			return "로그인 먼저 진행해주세요.";
+		}
+	}
 }
