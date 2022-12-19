@@ -29,5 +29,4 @@ public class SnackController {
 		// 정보 출력
 	}
 	
-
 }
